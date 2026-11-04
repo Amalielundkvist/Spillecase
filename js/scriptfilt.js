@@ -1,4 +1,10 @@
 // Her skal vi skrive vores søge-, sortering- og filtreringskoder
+function normaliserSvaerhedsgrad(value) {
+    const normalized = value?.trim().toLowerCase();
+    const aliases = { easy: 'let', medium: 'middel', hard: 'svær' };
+    return aliases[normalized] || normalized;
+}
+
 function filtrerProdukter() {
     // Lokal variabel som er en kopi af produktlisten.
     let filteredProducts = [...products];
@@ -12,7 +18,7 @@ if (searchText) {
     filteredProducts = filteredProducts.filter(product =>
     product.title.toLowerCase().includes(searchText) ||
     product.description.toLowerCase().includes(searchText) ||
-    product.category.toLowerCase().includes(searchText)
+    product.category.some(category => category.toLowerCase().includes(searchText))
     );
 }
 
@@ -21,50 +27,59 @@ if (searchText) {
 const
     categories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(cb => cb.value);
 const
+    difficulties = Array.from(document.querySelectorAll('input[name="Sværhedsgrad"]:checked'))
+        .map(cb => normaliserSvaerhedsgrad(cb.value));
+const onlyAvailable = document.querySelector('input[name="Ledige spil"]:checked') !== null;
+const
+    playerRanges = Array.from(document.querySelectorAll('input[name="Antal spillere"]:checked'))
+        .map(cb => cb.value.split('-').map(Number));
+const
     colors = Array.from(document.querySelectorAll('input[name="color"]:checked')).map(cb => cb.value);
-const minPrice = parseFloat(document.getElementById('min-price').value);
-const maxPrice = parseFloat(document.getElementById('max-price').value);
+const minPrice = parseFloat(document.getElementById('min-price')?.value ?? '');
+const maxPrice = parseFloat(document.getElementById('max-price')?.value ?? '');
 const
     rating = document.querySelector('input[name="rating"]:checked')?.value || null;
 
 if (categories.length > 0) {
     filteredProducts = filteredProducts.filter(product =>
-    categories.includes(product.category)
+    product.category.some(category => categories.includes(category))
     );
+}
+if (difficulties.length > 0) {
+    filteredProducts = filteredProducts.filter(product =>
+        difficulties.includes(normaliserSvaerhedsgrad(product.sværhedsgrad))
+    );
+}
+if (onlyAvailable) {
+    filteredProducts = filteredProducts.filter(product => product.ledig === true);
+}
+if (playerRanges.length > 0) {
+    filteredProducts = filteredProducts.filter(product => {
+        const playerCount = product.antalSpillere?.match(/\d+/g)?.map(Number);
+        if (!playerCount || playerCount.length < 2) return false;
+
+        const [minPlayers, maxPlayers] = playerCount;
+        return playerRanges.some(([selectedMin, selectedMax]) =>
+            minPlayers <= selectedMax && maxPlayers >= selectedMin
+        );
+    });
 }
 if (colors.length > 0) {
     filteredProducts = filteredProducts.filter(product =>
     colors.includes(product.color)
     );
 }
-if (!isNaN(minPrice)) {
-    filteredProducts = filteredProducts.filter(product =>
-    product.price >= minPrice
-    );
-}
-if (!isNaN(maxPrice)) {
-    filteredProducts = filteredProducts.filter(product =>
-    product.price <= maxPrice
-    );
-}
-if (rating !== null) {
-    filteredProducts = filteredProducts.filter(product =>
-    product.rating >= rating
-    );
-}
 
-
-//Håndtering af predefineret sortering
 const sorterEfter = document.getElementById("predefined-search").value;
-if (sorterEfter && sorterEfter === "populaere") {
-    filteredProducts.sort((a, b) => b.rating - a.rating);
+if (sorterEfter === "tid-stigende") {
+    filteredProducts.sort((a, b) => Number.parseInt(a.tid, 10) - Number.parseInt(b.tid, 10));
 }
-if (sorterEfter && sorterEfter === "pris-stigende") {
-    filteredProducts.sort((a, b) => a.price - b.price);
+if (sorterEfter === "tid-faldende") {
+    filteredProducts.sort((a, b) => Number.parseInt(b.tid, 10) - Number.parseInt(a.tid, 10));
 }
-if (sorterEfter && sorterEfter === "pris-faldende") {
-    filteredProducts.sort((a, b) => b.price - a.price);
-}
+
+
+
 
 displayProducts(filteredProducts);
 };
@@ -75,4 +90,3 @@ document.getElementById('apply-filters').addEventListener('click', function () {
     filtrerProdukter();
     closeFilterPanel();
 });
-

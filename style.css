@@ -6,13 +6,10 @@
 }
 
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
+    --primary-color: #e8743b;
+    --secondary-color: #fce3d4;
     --accent-color: #2ecc71;
     --text-color: #333;
-    --light-gray: #ecf0f1;
-    --medium-gray: #bdc3c7;
-    --dark-gray: #7f8c8d;
     --white: #ffffff;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     --border-radius: 8px;
@@ -23,16 +20,21 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--light-gray);
+    background-color: #FFF8EE;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 2000px;
     margin: 0 auto;
     padding: 20px;
 }
 
 /* Header */
+.navbar {
+    display: flex;
+}
+
+
 header {
     text-align: center;
     margin-bottom: 30px;
@@ -42,7 +44,7 @@ header {
 
 header h1 {
     color: var(--primary-color);
-    font-size: 2.5rem;
+    font-size: 80px;
 }
 
 /* Søgeområde */
@@ -51,6 +53,7 @@ header h1 {
     flex-direction: column;
     gap: 15px;
     margin-bottom: 30px;
+    
 }
 
 .search-input {
@@ -93,7 +96,7 @@ header h1 {
 .filter-button {
     padding: 12px 25px;
     font-size: 1rem;
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: var(--white);
     border: none;
     border-radius: var(--border-radius);
@@ -106,7 +109,7 @@ header h1 {
 }
 
 .filter-button:hover {
-    background-color: #2980b9;
+    background-color: var(--secondary-color);
     transform: translateY(-2px);
 }
 
@@ -177,7 +180,7 @@ header h1 {
     display: block;
     font-weight: 600;
     margin-bottom: 10px;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     font-size: 1.1rem;
 }
 
@@ -309,7 +312,7 @@ header h1 {
 /* Produkter container */
 .products-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 25px;
     margin-top: 20px;
 }
@@ -321,6 +324,7 @@ header h1 {
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    min-height: 500px;
 }
 
 .product-card:hover {
@@ -330,13 +334,35 @@ header h1 {
 
 .product-image {
     width: 100%;
-    height: 200px;
+    height: 400px;
     object-fit: cover;
     background-color: var(--light-gray);
 }
 
 .product-info {
     padding: 20px;
+}
+
+.product-availability {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 4px 9px;
+    border: 0;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: default;
+}
+
+.product-availability.available {
+    color: #17643b;
+    background-color: #e4f3e9;
+}
+
+.product-availability.busy {
+    color: #8a2929;
+    background-color: #f8e6e4;
 }
 
 .product-title {
@@ -355,9 +381,23 @@ header h1 {
 
 .product-meta {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     align-items: center;
+    gap: 6px;
     margin-bottom: 15px;
+
+}
+
+.product-card .product-meta > span {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border: 1px solid #e5ddd5;
+    border-radius: 16px;
+    background-color: #fff8ee;
+    color: var(--text-color);
+    font-size: 0.8rem;
 }
 
 .product-price {
@@ -374,15 +414,11 @@ header h1 {
     border-radius: 20px;
 }
 
-.product-rating {
-    color: #f39c12;
-    font-size: 1rem;
-}
 
 .product-button {
     width: 100%;
     padding: 10px;
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: var(--white);
     border: none;
     border-radius: var(--border-radius);
@@ -392,7 +428,7 @@ header h1 {
 }
 
 .product-button:hover {
-    background-color: #2980b9;
+    background-color: var(--secondary-color);
 }
 
 /* Footer */
@@ -497,4 +533,3 @@ dialog::backdrop {
 .filter-content::-webkit-scrollbar-thumb:hover {
     background: var(--dark-gray);
 }
-

@@ -22,16 +22,21 @@ function displayProducts(productsToDisplay) {
         productCard.className = 'product-card';
 
         const ratingStars = '★'.repeat(product.rating) + '☆'.repeat(5 - product.rating);
+        const availabilityText = product.ledig ? 'Ledigt' : 'Optaget';
+        const availabilityClass = product.ledig ? 'available' : 'busy';
 
         productCard.innerHTML = `
             <img src="${product.image}" alt="${product.title}" class="product-image">
             <div class="product-info">
                 <h3 class="product-title">${product.title}</h3>
-                <p class="product-description">${product.description || ''}</p>
                 <div class="product-meta">
                     <span class="product-category">${product.category}</span>
+                    <span class="product-tid">${product.tid}</span>
+                    <span class="product-antalSpillere">${product.antalSpillere}</span>
+                    <span class="product-sværhedsgrad">${product.sværhedsgrad}</span>
                 </div>
-                <div class="product-rating">${ratingStars}</div>
+                <p class="product-description">${product.description || ''}</p>
+                <button class="product-availability ${availabilityClass}" type="button" disabled>${availabilityText}</button>
                 <button class="product-button" onclick="showProductDialog(${product.id})">Vis</button>
             </div>
         `;

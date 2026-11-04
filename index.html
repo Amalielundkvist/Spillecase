@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>Produkt Katalog</h1>
+                <h1>Spilcafe</h1>
         </header>
 
         <main>
@@ -20,9 +20,8 @@
 
                 <select id="predefined-search" class="predefined-select">
                     <option value="">---- Sorter efter ----</option>
-                    <option value="populaere">Mest populære</option>
-                    <option value="pris-stigende">Pris: Lav til høj</option>
-                    <option value="pris-faldende">Pris: Høj til lav</option>
+                    <option value="tid-stigende">Tid: Lav til høj</option>
+                    <option value="tid-faldende">Tid: Høj til lav</option>
                 </select>
 
                 <button id="filter-toggle" class="filter-button">
@@ -47,19 +46,86 @@
                                 <input type="checkbox" name="category" value="Handel"> Handel
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" name="category" value="møbler"> Møbler
+                                <input type="checkbox" name="category" value="Familie"> Familie
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" name="category" value="bøger"> Bøger
+                                <input type="checkbox" name="category" value="Selskab"> Selskab
+                            </label>
+                             <label class="checkbox-label">
+                                <input type="checkbox" name="category" value="Rejse"> Rejse
+                            </label>
+                             <label class="checkbox-label">
+                                <input type="checkbox" name="category" value="Brætspil"> Brætspil
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="category" value="Kortspil"> Kortspil
                             </label>
                         </div>
+                    </div>
+                    
+                    
+                    
+                    <label class="filter-label">Tid</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="Tid" value="10-30 min"> 10-30 min
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="Tid" value="30-45 min"> 30-45 min
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="Tid" value="45-60 min"> 45-60 min
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="Tid" value="60-90 min"> 60-90 min
+                            </label>
+                        </div>
+
+                    <label class="filter-label">Antal spillere</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="Antal spillere" value="1-3"> 1-3
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="Antal spillere" value="4-6"> 4-6
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="Antal spillere" value="6-8"> 6-8
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="Antal spillere" value="8-12"> 8-12
+                            </label>
+                        </div>
+
+
+                        <label class="filter-label">Sværhedsgrad</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="Sværhedsgrad" value="Let"> Let
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="Sværhedsgrad" value="Middel"> Middel
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="Sværhedsgrad" value="Svær"> Svær
+                            </label>
+                        </div>
+
+                        <label class="filter-label">Ledige spil</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="Ledige spil" value="Ledige spil"> Ledige spil
+                            </label>
+                    
+                        </div>
+
                     </div>
 
                     
 
-                   
-                  
+                        
 
+                    
                 <div class="filter-footer">
                     <button id="apply-filters" class="apply-button">Vis Produkter</button>
                 </div>
@@ -70,7 +136,7 @@
         </main>
 
         <footer>
-            <p>&copy; 2026 Produkt Katalog</p>
+            <p>&copy; 2026 Spilcafe</p>
         </footer>
     </div>
 
