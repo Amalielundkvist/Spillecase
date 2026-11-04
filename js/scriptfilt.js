@@ -75,3 +75,4 @@ document.getElementById('apply-filters').addEventListener('click', function () {
     filtrerProdukter();
     closeFilterPanel();
 });
+

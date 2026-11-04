@@ -41,10 +41,10 @@
                         <label class="filter-label">Kategori</label>
                         <div class="checkbox-group">
                             <label class="checkbox-label">
-                                <input type="checkbox" name="category" value="elektronik"> Elektronik
+                                <input type="checkbox" name="category" value="Strategi"> Strategi
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" name="category" value="tøj"> Tøj
+                                <input type="checkbox" name="category" value="Handel"> Handel
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="category" value="møbler"> Møbler
@@ -55,57 +55,10 @@
                         </div>
                     </div>
 
-                    <div class="filter-group">
-                        <label class="filter-label">Pris interval</label>
-                        <div class="price-range">
-                            <input type="number" id="min-price" placeholder="Min pris" class="price-input">
-                            <span class="price-separator">-</span>
-                            <input type="number" id="max-price" placeholder="Max pris" class="price-input">
-                        </div>
-                    </div>
+                    
 
-                    <div class="filter-group">
-                        <label class="filter-label">Vurdering</label>
-                        <div class="rating-group">
-                            <label class="rating-label">
-                                <input type="radio" name="rating" value="5"> ★★★★★
-                            </label>
-                            <label class="rating-label">
-                                <input type="radio" name="rating" value="4"> ★★★★
-                            </label>
-                            <label class="rating-label">
-                                <input type="radio" name="rating" value="3"> ★★★
-                            </label>
-                            <label class="rating-label">
-                                <input type="radio" name="rating" value="2"> ★★
-                            </label>
-                            <label class="rating-label">
-                                <input type="radio" name="rating" value="1"> ★
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="filter-group">
-                        <label class="filter-label">Farve</label>
-                        <div class="color-group">
-                            <label class="color-label">
-                                <input type="checkbox" name="color" value="rød"> Rød
-                            </label>
-                            <label class="color-label">
-                                <input type="checkbox" name="color" value="blå"> Blå
-                            </label>
-                            <label class="color-label">
-                                <input type="checkbox" name="color" value="grøn"> Grøn
-                            </label>
-                            <label class="color-label">
-                                <input type="checkbox" name="color" value="sort"> Sort
-                            </label>
-                            <label class="color-label">
-                                <input type="checkbox" name="color" value="hvid"> Hvid
-                            </label>
-                        </div>
-                    </div>
-                </div>
+                   
+                  
 
                 <div class="filter-footer">
                     <button id="apply-filters" class="apply-button">Vis Produkter</button>
@@ -129,6 +82,8 @@
             <div class="product-meta">
                 <span id="dialog-category" class="product-category"></span>
             </div>
+            <div class="product-meta">
+                <span id="dialog-price" class="product-price"></span>
             <div id="dialog-rating" class="product-rating"></div>
             <menu class="dialog-actions">
                 <button id="dialog-close" value="cancel">Luk</button>
