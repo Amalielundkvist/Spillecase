@@ -1,17 +1,15 @@
 // Nedenstående objektliste udgør løsningens "Grundmængde"
-// Variablen "products" bruges af de andre scripts og kan ses som window.products.
+// "products" er global og bruges af scriptui.js og scriptfilt.js
 const products = [
     {
         id: 1,
         ledig: true,
         title: "Catan",
         image: "https://spilforsyningen.dk/cdn/shop/files/a968a025-4962-4c15-8d26-2415eab0a5f3.jpg?v=1789707829&width=640",
-        //attribut: Ledig/optaget, ligger i html.
         category: ["Strategi", "Handel"],
         antalSpillere: "3-10",
         tid: "30-45 min",
         sværhedsgrad: "Let",
-        ledig: true,
         description: "Byg bosættelser, handl ressourcer og kæmp om øen sammen.",
         
     },
@@ -21,26 +19,23 @@ const products = [
         ledig: true,
         title: "Azul",
         image: "https://nordiskspil.dk/cdn/shop/files/Azul-spil-forside.jpg?v=1757244939",
-        //attribut: Ledig/optaget, ligger i html.
         category: ["Strategi", "Familie"],
         antalSpillere: "2-4",
         tid: "30-45 min",
         sværhedsgrad: "Let",
-        ledig: true,
-        description: "Placér farvede fliser og dekorér paladsvæggen. Smukt, hurtigt og let at lære..",
+        description: "Placér farvede fliser og dekorér paladsvæggen. Smukt, hurtigt og let at lære.",
         
     },
 
      {
         id: 3,
-          ledig: true,
+        ledig: true,
         title: "Dixit",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPiv7w6_ROa6Mb2fUmh-JYgZVvVqwIqevW7gRLrwV-Pw&s=10",
         category: ["Familie"],
         antalSpillere: "3-6",
         tid: "30-45 min",
         sværhedsgrad: "Let",
-        ledig: true,
         description: "Fortæl historier med smukke illustrationer og lad dine venner gætte, hvilken kort du har valgt.",
         
     },
@@ -50,13 +45,11 @@ const products = [
         ledig: true,
         title: "Ticket to ride",
         image: "https://www.proshop.dk/Images/1600x1200/2664509_0666dd2e8858.jpg",
-        //attribut: Ledig/optaget, ligger i html.
         category: ["Familie", "Rejse"],
         antalSpillere: "2-5",
         tid: "45-60 min",
         sværhedsgrad: "Let",
-        ledig: true,
-        description: "Byg togruter på tværs af kortet – og blokér de andres planer.xs",
+        description: "Byg togruter på tværs af kortet – og blokér de andres planer",
         
     },
 
@@ -68,8 +61,7 @@ const products = [
         category: ["Familie"],
         antalSpillere: "2-4",
         tid: "45-60 min",
-        sværhedsgrad: "medium",
-        ledig: true,
+        sværhedsgrad: "middel",
         description: "Samarbejd om at redde verden fra dødelige sygdomme, før det er for sent.",
         
     },
@@ -82,22 +74,20 @@ const products = [
         category: ["Strategi","Brætspil", "Familie"],
         antalSpillere: "2-6",
         tid: "60-90 min",
-        sværhedsgrad: "let",
-        ledig: true,
+        sværhedsgrad: "Let",
         description: "Partners er et sjovt alternativ til Ludo, hvor man sammen med en makker skal få brikkerne hele vejen hjem, men i stedet for at rulle terninger, bruger man kort til at flytte brikkerne med.",
         
     },
 
      {
         id: 7,
-          ledig: true,
+        ledig: true,
         title: "Tegn og Gæt",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSenu1m47hsE6Lp9EDTpPtcTMd_xEM8i2KBd83Pr404Sw&s=10",
         category: ["Familie", "Selskab"],
         antalSpillere: "2-12",
         tid: "30-45 min",
-        sværhedsgrad: "let",
-        ledig: false,
+        sværhedsgrad: "Let",
         description: "Tegn og Gæt er et sjovt selskabsspil, hvor man skal tegne og gætte ord på tid. Spillet er perfekt til en aften med venner eller familie.",
         
     },
@@ -110,8 +100,7 @@ const products = [
         category: ["Familie", "Selskab"],
         antalSpillere: "2-12",
         tid: "30-45 min",
-        sværhedsgrad: "let",
-        ledig: true,
+        sværhedsgrad: "Let",
         description: "Det dårlige selskab er et sjovt og underholdende selskabsspil, hvor man skal gætte ord og sætninger på tid. Spillet er perfekt til en aften med venner eller familie.",
         
     },
@@ -124,8 +113,7 @@ const products = [
         category: ["Familie", "Strategi"],
         antalSpillere: "2-12",
         tid: "10-30 min",
-        sværhedsgrad: "let",
-        ledig: true,
+        sværhedsgrad: "Let",
         description: "Sequence er et sjovt og underholdende selskabsspil, hvor man skal placere brikker på et spillebræt for at danne rækker af fem. Spillet er perfekt til en aften med venner eller familie.",
         
     },
@@ -138,8 +126,7 @@ const products = [
         category: ["Familie", "Kortspil"],
         antalSpillere: "2-6",
         tid: "30-60 min",
-        sværhedsgrad: "let",
-        ledig: false,
+        sværhedsgrad: "Let",
         description: "Phase 10 er et sjovt og udfordrende kortspil for 2-6 spillere, der minder om Rummy, hvor målet er at blive den første til at gennemføre 10 forskellige faser."
     },
 
@@ -152,8 +139,7 @@ const products = [
         category: ["Familie", "Kortspil"],
         antalSpillere: "2-8",
         tid: "15-45 min",
-        sværhedsgrad: "let",
-        ledig: false,
+        sværhedsgrad: "Let",
         description: "Hver spiller styrer et 3x4-område med skjulte og åbne kort, trækker eller tager fra afkastbunken for at bytte kort, afsløre deres gitter og holde deres samlede score så lav som muligt."
     },
 
@@ -165,8 +151,7 @@ const products = [
         category: ["Familie", "Kortspil"],
         antalSpillere: "2-10",
         tid: "20-30 min",
-        sværhedsgrad: "let",
-        ledig: false,
+        sværhedsgrad: "Let",
         description: "UNO Flip er en sjov og overraskende version af det klassiske UNO, hvor spillet kan vende på et øjeblik. Her gælder det om at tænke hurtigt, holde øje med modstanderne og bruge sine specialkort smart.",
     },
 ];
