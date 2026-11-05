@@ -33,12 +33,6 @@ const onlyAvailable = document.querySelector('input[name="Ledige spil"]:checked'
 const
     playerRanges = Array.from(document.querySelectorAll('input[name="Antal spillere"]:checked'))
         .map(cb => cb.value.split('-').map(Number));
-const
-    colors = Array.from(document.querySelectorAll('input[name="color"]:checked')).map(cb => cb.value);
-const minPrice = parseFloat(document.getElementById('min-price')?.value ?? '');
-const maxPrice = parseFloat(document.getElementById('max-price')?.value ?? '');
-const
-    rating = document.querySelector('input[name="rating"]:checked')?.value || null;
 
 if (categories.length > 0) {
     filteredProducts = filteredProducts.filter(product =>
@@ -64,11 +58,6 @@ if (playerRanges.length > 0) {
         );
     });
 }
-if (colors.length > 0) {
-    filteredProducts = filteredProducts.filter(product =>
-    colors.includes(product.color)
-    );
-}
 
 const sorterEfter = document.getElementById("predefined-search").value;
 if (sorterEfter === "tid-stigende") {
@@ -82,7 +71,7 @@ if (sorterEfter === "tid-faldende") {
 
 
 displayProducts(filteredProducts);
-};
+}
 
 document.getElementById("search-input").addEventListener("input", filtrerProdukter);
 document.getElementById("predefined-search").addEventListener("change", filtrerProdukter);
