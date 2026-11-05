@@ -21,7 +21,6 @@ function displayProducts(productsToDisplay) {
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
 
-        const ratingStars = '★'.repeat(product.rating) + '☆'.repeat(5 - product.rating);
         const availabilityText = product.ledig ? 'Ledigt' : 'Optaget';
         const availabilityClass = product.ledig ? 'available' : 'busy';
 
@@ -30,7 +29,7 @@ function displayProducts(productsToDisplay) {
             <div class="product-info">
                 <h3 class="product-title">${product.title}</h3>
                 <div class="product-meta">
-                    <span class="product-category">${product.category}</span>
+                    <span class="product-category">${product.category.join(", ")}</span>
                     <span class="product-tid">${product.tid}</span>
                     <span class="product-antalSpillere">${product.antalSpillere}</span>
                     <span class="product-sværhedsgrad">${product.sværhedsgrad}</span>
@@ -53,10 +52,10 @@ function showProductDialog(productId) {
     document.getElementById('dialog-image').src = product.image;
     document.getElementById('dialog-image').alt = product.title;
     document.getElementById('dialog-title').textContent = product.title;
+    // Samme join() som i displayProducts
     document.getElementById('dialog-description').textContent = product.description || '';
-    document.getElementById('dialog-category').textContent = product.category;
+    document.getElementById('dialog-category').textContent = product.category.join(", ");
 
-    const ratingStars = '★'.repeat(product.rating) + '☆'.repeat(5 - product.rating);
     document.getElementById('dialog-rating').textContent = ratingStars;
 
     dialog.showModal(); // åbner som modal med baggrundsdæmpning
