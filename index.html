@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produkt Søgning</title>
+    <!-- Titel passer til siden -->
+    <title>Spilcafe</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -16,7 +17,7 @@
 
         <main>
             <div class="search-container">
-                <input type="search" id="search-input" placeholder="Søg efter produkter..." class="search-input">
+                <input type="search" id="search-input" placeholder="Søg efter spil..." class="search-input">
 
                 <select id="predefined-search" class="predefined-select">
                     <option value="">---- Sorter efter ----</option>
@@ -31,7 +32,7 @@
 
             <div id="filter-panel" class="filter-panel">
                 <div class="filter-header">
-                    <h2>Filtrer Produkter</h2>
+                    <h2>Filtrer spil</h2>
                     <button id="close-filter" class="close-button">&times;</button>
                 </div>
 
@@ -127,7 +128,7 @@
 
                     
                 <div class="filter-footer">
-                    <button id="apply-filters" class="apply-button">Vis Produkter</button>
+                    <button id="apply-filters" class="apply-button">Vis spil</button>
                 </div>
             </div>
 
@@ -148,9 +149,7 @@
             <div class="product-meta">
                 <span id="dialog-category" class="product-category"></span>
             </div>
-            <div class="product-meta">
-                <span id="dialog-price" class="product-price"></span>
-            <div id="dialog-rating" class="product-rating"></div>
+        
             <menu class="dialog-actions">
                 <button id="dialog-close" value="cancel">Luk</button>
             </menu>
