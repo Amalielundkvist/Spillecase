@@ -96,7 +96,7 @@ const products = [
         id: 8,
           ledig: true,
         title: "Det dårlige selskab",
-        image: "Images/Det Dårlige Selskab.png",
+        image: "Images/Det Daarlige Selskab.png",
         category: ["Familie", "Selskab"],
         antalSpillere: "2-12 spillere",
         tid: "30-45 min",
